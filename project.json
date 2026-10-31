@@ -1,0 +1,207 @@
+{
+  "general": {
+    "properties": {
+      "backgroundUrl": {
+        "order": 0,
+        "text": "[BACKGROUND] Direct media URL (JPG/PNG/GIF/WebM/OGV/OGG)",
+        "type": "textinput",
+        "value": ""
+      },
+      "brandTitle": {
+        "order": 1,
+        "text": "[BRAND] Main title (blank uses selected language)",
+        "type": "textinput",
+        "value": ""
+      },
+      "brandSubtitle": {
+        "order": 2,
+        "text": "[BRAND] Subtitle (blank uses selected language)",
+        "type": "textinput",
+        "value": ""
+      },
+      "dockPosition": {
+        "index": 0,
+        "options": [
+          {
+            "label": "Top",
+            "value": "top"
+          },
+          {
+            "label": "Left",
+            "value": "left"
+          },
+          {
+            "label": "Right",
+            "value": "right"
+          },
+          {
+            "label": "Bottom",
+            "value": "bottom"
+          }
+        ],
+        "order": 3,
+        "text": "[DOCK] Position — Top / Left / Right / Bottom",
+        "type": "combo",
+        "value": "top"
+      },
+      "fontFamily": {
+        "index": 0,
+        "options": [
+          {
+            "label": "System Sans",
+            "value": "system"
+          },
+          {
+            "label": "Rounded",
+            "value": "rounded"
+          },
+          {
+            "label": "Serif",
+            "value": "serif"
+          },
+          {
+            "label": "Monospace",
+            "value": "mono"
+          }
+        ],
+        "order": 4,
+        "text": "[TYPOGRAPHY] Font family",
+        "type": "combo",
+        "value": "system"
+      },
+      "accentColor": {
+        "order": 5,
+        "text": "[COLORS] Accent and highlights",
+        "type": "color",
+        "value": "0.502 0.890 0.792"
+      },
+      "textColor": {
+        "order": 6,
+        "text": "[COLORS] Main text",
+        "type": "color",
+        "value": "0.965 0.969 0.980"
+      },
+      "mutedColor": {
+        "order": 7,
+        "text": "[COLORS] Secondary text",
+        "type": "color",
+        "value": "0.667 0.698 0.765"
+      },
+      "panelColor": {
+        "order": 8,
+        "text": "[COLORS] Settings panel and dock surface",
+        "type": "color",
+        "value": "0.063 0.082 0.129"
+      },
+      "borderColor": {
+        "order": 9,
+        "text": "[COLORS] Borders and calendar grid",
+        "type": "color",
+        "value": "0.600 0.650 0.740"
+      },
+      "calendarBgColor": {
+        "order": 10,
+        "text": "[CALENDAR] Calendar background",
+        "type": "color",
+        "value": "0.055 0.075 0.115"
+      },
+      "cellColor": {
+        "order": 11,
+        "text": "[CALENDAR] Day cell background",
+        "type": "color",
+        "value": "0.110 0.145 0.200"
+      },
+      "dayTextColor": {
+        "order": 12,
+        "text": "[CALENDAR] Day numbers",
+        "type": "color",
+        "value": "0.900 0.920 0.960"
+      },
+      "todayColor": {
+        "order": 13,
+        "text": "[CALENDAR] Today highlight",
+        "type": "color",
+        "value": "0.502 0.890 0.792"
+      },
+      "todayTextColor": {
+        "order": 14,
+        "text": "[CALENDAR] Today number",
+        "type": "color",
+        "value": "0.040 0.120 0.100"
+      },
+      "weekdayColor": {
+        "order": 15,
+        "text": "[CALENDAR] Weekday labels",
+        "type": "color",
+        "value": "0.750 0.780 0.830"
+      },
+      "eventTextColor": {
+        "order": 16,
+        "text": "[EVENTS] Event names",
+        "type": "color",
+        "value": "0.910 0.930 0.960"
+      },
+      "eventMintColor": {
+        "order": 17,
+        "text": "[EVENTS] Marker — mint",
+        "type": "color",
+        "value": "0.640 0.945 0.865"
+      },
+      "eventBlueColor": {
+        "order": 18,
+        "text": "[EVENTS] Marker — blue",
+        "type": "color",
+        "value": "0.560 0.710 1.000"
+      },
+      "eventAmberColor": {
+        "order": 19,
+        "text": "[EVENTS] Marker — amber",
+        "type": "color",
+        "value": "1.000 0.790 0.460"
+      },
+      "eventRoseColor": {
+        "order": 20,
+        "text": "[EVENTS] Marker — rose",
+        "type": "color",
+        "value": "1.000 0.600 0.670"
+      },
+      "wallpaperStartColor": {
+        "order": 21,
+        "text": "[WALLPAPER] Background color",
+        "type": "color",
+        "value": "0.000 0.000 0.000"
+      },
+      "wallpaperEndColor": {
+        "order": 22,
+        "text": "[WALLPAPER] Gradient second color",
+        "type": "color",
+        "value": "0.000 0.000 0.000"
+      },
+      "wallpaperGradient": {
+        "order": 23,
+        "text": "[WALLPAPER] Background style",
+        "type": "combo",
+        "value": "solid",
+        "index": 0,
+        "options": [
+          {"label": "Solid color", "value": "solid"},
+          {"label": "Horizontal gradient", "value": "horizontal"},
+          {"label": "Vertical gradient", "value": "vertical"},
+          {"label": "Diagonal gradient", "value": "diagonal"},
+          {"label": "Radial gradient", "value": "radial"}
+        ]
+      },
+      "wallpaperShade": {
+        "order": 24,
+        "text": "[WALLPAPER] Dimming level (0–100%)",
+        "type": "slider",
+        "value": 50,
+        "min": 0,
+        "max": 100,
+        "step": 1
+      }
+    }
+  },
+  "type": "web",
+  "file": "index.html"
+}

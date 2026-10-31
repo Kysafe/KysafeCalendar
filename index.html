@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101522">
+  <title>Calendar — Wallpaper Engine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wallpaper" id="wallpaper">
+    <div class="media-image" id="mediaImage"></div>
+    <div class="media-image" id="mediaImageAlt" aria-hidden="true"></div>
+    <video id="backgroundVideo" muted autoplay loop playsinline hidden></video>
+    <video id="backgroundVideoAlt" muted autoplay loop playsinline hidden></video>
+    <div class="shade"></div>
+    <header class="topbar">
+      <button class="dock-toggle" id="dockHide" type="button" aria-label="Hide top bar" title="Hide top bar">⌃</button>
+      <div class="brand-group"><div class="brand"><span class="brand-mark" aria-hidden="true"></span><span><span id="brandTitle">CALENDAR</span><span class="brand-sub" id="brandSubtitle">YOUR MONTH, YOUR PLANS</span></span></div>
+        <div class="background-nav"><button class="icon-button" id="previousBackground" aria-label="Previous background">‹</button><button class="icon-button" id="nextBackground" aria-label="Next background">›</button><span id="backgroundCount" class="background-count">0 / 0</span></div>
+        <button class="toggle-calendar" id="calendarToggle" data-i18n="hideCalendar">Hide calendar</button>
+      </div>
+      <div class="controls">
+        <button class="icon-button" id="prevMonth" aria-label="Previous month">←</button>
+        <button class="today-button" id="todayButton" data-i18n="today">Today</button>
+        <button class="icon-button" id="nextMonth" aria-label="Next month">→</button>
+        <button class="settings-button" id="settingsToggle">⚙ <span data-i18n="settings">Settings</span></button>
+      </div>
+    </header>
+    <button class="dock-reveal" id="dockReveal" type="button" aria-label="Show top bar" title="Show top bar" hidden>⌄</button>
+    <section class="content">
+      <div class="month-heading"><div><p class="eyebrow" id="yearLabel"></p><h1 id="monthLabel"></h1></div><p class="month-note" data-i18n="monthNote">SMALL STEPS. A WELL-PLANNED MONTH.</p></div>
+      <div class="calendar" id="calendar" aria-label="Monthly calendar"></div>
+      <footer><span><i class="live-dot"></i> <span data-i18n="footer">YOUR PLAN, EVERY DAY</span></span><span id="eventCount"></span></footer>
+    </section>
+    <aside class="settings" id="settings" aria-label="Calendar settings" hidden>
+      <div class="panel-head"><div><p class="eyebrow" data-i18n="personalization">PERSONALIZATION</p><h2 data-i18n="settings">Settings</h2></div><button class="icon-button close-button" id="closeSettings" aria-label="Close">×</button></div>
+      <nav class="settings-tabs" role="tablist" aria-label="Settings pages"><button type="button" data-settings-page="calendar" data-i18n="calendarTab">Calendar</button><button type="button" data-settings-page="backgrounds" data-i18n="backgroundsTab">Backgrounds</button><button type="button" data-settings-page="events" data-i18n="eventsTab">Events</button></nav>
+      <section class="settings-page" id="settingsPage-calendar">
+        <span class="field-label" data-i18n="language">Language</span>
+        <div class="choice-group" id="languageChoices" role="group" aria-label="Language"><button type="button" data-value="en">English</button><button type="button" data-value="pl">Polski</button></div>
+        <span class="field-label" data-i18n="layout">Calendar layout</span>
+        <div class="choice-group" id="ratioChoices" role="group" aria-label="Calendar layout"><button type="button" data-value="auto">Auto</button><button type="button" data-value="16:9">16:9</button><button type="button" data-value="21:9">21:9</button><button type="button" data-value="4:3">4:3</button></div>
+        <p class="hint" data-i18n="layoutHint">This adjusts the calendar layout width. Your monitor controls the actual screen ratio.</p>
+        <span class="field-label" data-i18n="calendarStyles">Calendar styles</span>
+        <div class="choice-group style-choices" id="styleChoices" role="group" aria-label="Calendar styles"><button type="button" data-style="grid" data-i18n="styleGrid">Grid</button><button type="button" data-style="minimal" data-i18n="styleMinimal">Minimal</button><button type="button" data-style="cards" data-i18n="styleCards">Cards</button><button type="button" data-style="three-day" data-i18n="styleThreeDay">Three days</button><button type="button" data-style="week" data-i18n="styleWeek">Week</button><button type="button" data-style="agenda" data-i18n="styleAgenda">Agenda</button><button type="button" data-style="compact" data-i18n="styleCompact">Compact</button><button type="button" data-style="bento" data-i18n="styleBento">Bento</button><button type="button" data-style="editorial" data-i18n="styleEditorial">Editorial</button></div>
+        <span class="field-label" data-i18n="timelineOrientation">Day timeline orientation</span>
+        <div class="choice-group" id="timelineOrientationChoices" role="group" aria-label="Day timeline orientation"><button type="button" data-value="vertical" data-i18n="verticalOrientation">Top to bottom</button><button type="button" data-value="horizontal" data-i18n="horizontalOrientation">Left to right</button></div>
+      </section>
+      <section class="settings-page" id="settingsPage-backgrounds" hidden>
+        <div class="background-actions"><label class="upload-button" for="backgroundFiles" data-i18n="addBackgrounds">＋ Add image/video</label><input id="backgroundFiles" type="file" accept="image/*,.webm,.ogv,.ogg,video/webm,video/ogg,video/ogv" multiple hidden><button id="removeBackground" class="subtle-button" data-i18n="removeBackground">Remove current</button><button id="clearBackground" class="subtle-button" data-i18n="defaultBackground">Default background</button></div>
+        <p class="hint" data-i18n="backgroundHint">Images and WebM/Ogg videos are saved on this computer. Use the ‹ and › buttons beside the title to switch backgrounds.</p>
+        <div class="profile-help"><span class="profile-dot visible-dot"></span><span data-i18n="visibleProfile">Calendar visible</span><span class="profile-dot hidden-dot"></span><span data-i18n="hiddenProfile">Calendar hidden</span></div>
+        <div id="backgroundLibrary" class="background-library" aria-label="Uploaded backgrounds"></div>
+        <p class="hint" data-i18n="urlImportHint">To add a direct image/video link, paste it into Background URL in Wallpaper Engine Properties. Use a direct media-file link.</p>
+        <span class="field-label" data-i18n="autoChangeBackgrounds">Automatic background change</span>
+        <div class="choice-group" id="autoChangeChoices" role="group" aria-label="Automatic background change"><button type="button" data-value="no" data-i18n="no">No</button><button type="button" data-value="yes" data-i18n="yes">Yes</button></div>
+        <label class="field-label range-label" for="rotationSeconds"><span data-i18n="changeEvery">Change background every</span> <output id="rotationSecondsValue">30 s</output></label>
+        <input id="rotationSeconds" class="settings-range" type="range" min="5" max="600" step="5" value="30">
+        <span class="field-label" data-i18n="loopVideos">Loop videos</span>
+        <div class="choice-group" id="loopVideoChoices" role="group" aria-label="Loop videos"><button type="button" data-value="no" data-i18n="no">No</button><button type="button" data-value="yes" data-i18n="yes">Yes</button></div>
+        <span class="field-label" data-i18n="imageFit">Image display</span>
+        <div class="choice-group image-fit-choices" id="imageFitChoices" role="group" aria-label="Image display"><button type="button" data-fit="stretch" data-i18n="fitStretch">Stretch</button><button type="button" data-fit="tile" data-i18n="fitTile">Tile</button><button type="button" data-fit="contain" data-i18n="fitContain">Fit</button><button type="button" data-fit="center" data-i18n="fitCenter">Center</button></div>
+      </section>
+      <section class="settings-page" id="settingsPage-events" hidden>
+        <p class="hint" data-i18n="importHint">Import an .ics calendar or a JSON plan exported from your calendar or planner.</p>
+        <div id="eventList" class="event-list"></div>
+        <div class="data-actions"><button id="exportEvents" class="subtle-button" data-i18n="exportPlan">↓ Export plan</button><label class="subtle-button import-label" for="importFile" data-i18n="importJson">↑ Import JSON</label><input id="importFile" type="file" accept="application/json,.json" hidden><label class="subtle-button import-label" for="icsFile" data-i18n="importIcs">▣ Import .ics calendar</label><input id="icsFile" type="file" accept=".ics,text/calendar" hidden></div>
+        <p class="hint" data-i18n="icsHint">Import an .ics file exported from Outlook or Google. Re-export and import it again after making changes.</p>
+      </section>
+    </aside>
+    <div class="toast" id="toast" role="status"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
